@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "YouTube to Spotify",
+  "name": "Youtify",
   "version": "1.0",
   "description": "Add YouTube songs to Spotify playlists with one click",
   "permissions": [
