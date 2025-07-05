@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extension Debug Info</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .info { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .code { background: #333; color: #fff; padding: 10px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>YouTube to Spotify Extension Debug</h1>
+    
+    <div class="info">
+        <h3>Extension Redirect URI</h3>
+        <p>Your extension's redirect URI should be:</p>
+        <div class="code" id="redirect-uri">Loading...</div>
+    </div>
+
+    <div class="info">
+        <h3>Setup Instructions</h3>
+        <ol>
+            <li>Copy the redirect URI above</li>
+            <li>Go to <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a></li>
+            <li>Select your app</li>
+            <li>Click "Edit Settings"</li>
+            <li>Add the redirect URI to "Redirect URIs"</li>
+            <li>Save settings</li>
+            <li>Replace the Client ID in manifest.json</li>
+        </ol>
+    </div>
+
+    <script>
+        if (typeof chrome !== 'undefined' && chrome.identity) {
+            const redirectUri = chrome.identity.getRedirectURL();
+            document.getElementById('redirect-uri').textContent = redirectUri;
+        } else {
+            document.getElementById('redirect-uri').textContent = 'Unable to get redirect URI - not running in extension context';
+        }
+    </script>
+</body>
+</html>
