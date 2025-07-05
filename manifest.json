@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube to Spotify",
+  "version": "1.0",
+  "description": "Add YouTube songs to Spotify playlists with one click",
+  "permissions": [
+    "storage",
+    "notifications",
+    "identity",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://accounts.spotify.com/*",
+    "https://api.spotify.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["utils.js", "content.js"],
+      "css": ["popup.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube to Spotify"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon.svg",
+    "48": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "oauth2": {
+    "client_id": "f3d7c9f1fb4b4e6298c79939fae12060",
+    "scopes": [
+      "playlist-modify-public",
+      "playlist-modify-private",
+      "playlist-read-private",
+      "user-read-private"
+    ]
+  }
+}
