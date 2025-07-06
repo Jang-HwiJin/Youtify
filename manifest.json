@@ -8,12 +8,15 @@
     "notifications",
     "identity",
     "tabs",
-    "activeTab"
+    "activeTab",
+    "webRequest"
   ],
   "host_permissions": [
-    "https://www.youtube.com/*",
-    "https://accounts.spotify.com/*",
-    "https://api.spotify.com/*"
+  "https://www.youtube.com/*",
+  "https://accounts.spotify.com/*",
+  "https://api.spotify.com/*",
+  "http://localhost:11434/*",
+  "http://localhost:4000/*"
   ],
   "background": {
     "service_worker": "background.js"
